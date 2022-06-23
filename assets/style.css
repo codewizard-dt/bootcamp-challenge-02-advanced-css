@@ -1,0 +1,206 @@
+:root {
+  --gray: rgb(88,96,96);
+  --dark-gray: rgb(72, 78, 78);
+  --blue: rgb(98, 223, 206);
+  --blue-dark: rgb(73, 189, 174);
+  --blue-hov: rgb(110, 249, 230);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(88, 96, 96);
+}
+nav > * {
+  display: inline-block;
+  padding: 0.5rem
+}
+nav h1 {
+  background-color: var(--blue);
+  padding-left: 2rem;
+  color: var(--dark-gray);
+  margin: 0.5rem 0
+}
+nav ul {
+  position: relative;
+  flex-grow: 1;
+  text-align: right;
+  list-style: none;
+}
+nav ul li {
+  display: inline-block;
+  margin: 0 4px;
+  transition: 400ms
+}
+nav a {
+  text-underline-offset: 3px;
+  transition: 400ms;
+  color: var(--blue)
+}
+nav li:hover {
+  transform: translateY(-3px)
+}
+nav li:hover a {
+  color: var(--blue-hov)
+}
+figure.splash {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+figure.splash > img:not(.avatar) {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+figure.splash > figcaption {
+  position: absolute;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  right: 1rem;
+  bottom: 2rem;
+  background-color: var(--blue);
+  z-index: 2;
+}
+figure div.avatar {
+  position: absolute;
+  background-image: url(./images/avatar.jpg);
+  background-size: auto 300px;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 200%;
+  width: 560px;
+  /* min-width: 4em; */
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px var(--blue);
+  z-index: 1;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+
+section {
+  display: flex;
+  margin: 1rem 0;
+}
+section aside {
+  padding: 1rem;
+  text-align: right;
+  width: 25%;
+  max-width: 300px;
+  border-right: 3px solid var(--blue);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+section article {
+  width: 75%;
+  padding: 1.2rem 1rem;
+  font-size: 1.15rem;
+}
+
+article p {
+  padding-bottom: 1rem;
+}
+article p:last-child{
+  padding-bottom: 0;
+}
+
+#work article {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  justify-content: space-between;
+  gap: 5px
+}
+
+.card {
+  display: block;
+  position: relative;
+  border: 2px solid var(--blue);
+  background-color: var(--blue);
+  grid-column: span 1;
+  transition: 400ms;
+  bottom: 0;
+}
+.card:first-of-type {
+  grid-column: span 2;
+  max-width: unset;
+}
+.card:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0);
+  transition: 400ms;
+  left: 0;
+}
+.card:hover {
+  bottom: 15px;
+  box-shadow: 0 -5px 15px white;
+}
+.card:hover:after {
+  background-color: rgba(0,0,0,0.3);
+}
+.card:hover label {
+  font-size: 1.5rem;
+}
+.card img {
+  width: 100%;
+  max-width: 100%;
+  /* min-height: 200px; */
+  margin-bottom: -5px;
+}
+.card label {
+  position: absolute;
+  cursor: pointer;
+  background-color: inherit;
+  left: 0;
+  bottom: 1rem;
+  padding: 5px 10px;
+  z-index: 3;
+  transition: 400ms;
+}
+
+label header {
+  font-size: 1.1em;
+  color: black;
+}
+label subheader {
+  color: var(--gray)
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+a {
+  color: var(--gray)
+}
+
+.flex-row > a {
+  display: inline-block;
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin: 0 0.5rem;
+}
+
+footer {
+  background-color: rgb(88, 96, 96);
+  color: var(--blue);
+  text-align: center;
+  font-size: 1.3em;
+  padding: 1rem;
+}
