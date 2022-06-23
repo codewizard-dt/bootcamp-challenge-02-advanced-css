@@ -5,6 +5,7 @@
   --blue-dark: rgb(73, 189, 174);
   --blue-hov: rgb(110, 249, 230);
 }
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 14px;
 }
+/* Creates Nav Bar */
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -42,6 +44,7 @@ nav ul li {
   margin: 0 4px;
   transition: 400ms
 }
+/* Actual Nav Links */
 nav a {
   text-underline-offset: 3px;
   transition: 400ms;
@@ -53,6 +56,8 @@ nav li:hover {
 nav li:hover a {
   color: var(--blue-hov)
 }
+
+/* Image bar at top of page */
 figure.splash {
   position: relative;
   height: 300px;
@@ -60,11 +65,13 @@ figure.splash {
   overflow: hidden;
   z-index: 0;
 }
+/* Background image */
 figure.splash > img:not(.avatar) {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
 }
+/* Splash Caption */
 figure.splash > figcaption {
   position: absolute;
   padding: 0.5rem;
@@ -74,6 +81,7 @@ figure.splash > figcaption {
   background-color: var(--blue);
   z-index: 2;
 }
+/* Avatar image */
 figure div.avatar {
   position: absolute;
   background-image: url(./images/avatar.jpg);
@@ -82,18 +90,18 @@ figure div.avatar {
   background-position: right;
   height: 200%;
   width: 560px;
-  /* min-width: 4em; */
   border-radius: 50%;
   box-shadow: 0px 0px 10px var(--blue);
   z-index: 1;
   top: 50%;
   transform: translate(-50%,-50%)
 }
-
+/* Basic Sections */
 section {
   display: flex;
   margin: 1rem 0;
 }
+/* Left Column */
 section aside {
   padding: 1rem;
   text-align: right;
@@ -103,12 +111,14 @@ section aside {
   font-size: 1.5rem;
   font-weight: 700;
 }
+/* Main section content */
 section article {
   width: 75%;
   padding: 1.2rem 1rem;
   font-size: 1.15rem;
 }
 
+/* Text within main section content */
 article p {
   padding-bottom: 1rem;
 }
@@ -116,6 +126,7 @@ article p:last-child{
   padding-bottom: 0;
 }
 
+/* Work Card Container */
 #work article {
   display: grid;
   grid-template-columns: repeat(2, 50%);
@@ -123,6 +134,7 @@ article p:last-child{
   gap: 5px
 }
 
+/* Work Cards */
 .card {
   display: block;
   position: relative;
@@ -132,35 +144,41 @@ article p:last-child{
   transition: 400ms;
   bottom: 0;
 }
+/* First card is full wide */
 .card:first-of-type {
   grid-column: span 2;
   max-width: unset;
 }
+/* Lift card up on hover */
+.card:hover {
+  bottom: 15px;
+  box-shadow: 0 -5px 15px white;
+}
+/* Pseudo element to highlight on hover */
 .card:after {
   position: absolute;
   content: ' ';
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   transition: 400ms;
   left: 0;
-}
-.card:hover {
-  bottom: 15px;
-  box-shadow: 0 -5px 15px white;
 }
 .card:hover:after {
   background-color: rgba(0,0,0,0.3);
 }
+
+/* Increse label size on hover */
 .card:hover label {
   font-size: 1.5rem;
 }
+/* Image stretch to fill container */
 .card img {
   width: 100%;
   max-width: 100%;
-  /* min-height: 200px; */
   margin-bottom: -5px;
 }
+/* Work card label */
 .card label {
   position: absolute;
   cursor: pointer;
@@ -172,6 +190,7 @@ article p:last-child{
   transition: 400ms;
 }
 
+/* Label as header and subheader */
 label header {
   font-size: 1.1em;
   color: black;
@@ -194,7 +213,7 @@ a {
   display: inline-block;
   color: var(--gray);
   font-size: 1.1rem;
-  margin: 0 0.5rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
 }
 
 footer {
@@ -203,4 +222,27 @@ footer {
   text-align: center;
   font-size: 1.3em;
   padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  /* Make section children stack at low-width */
+  section {
+    display: block
+  }
+  /* Restyle as stacked element */
+  section aside {
+    width: 100%;
+    max-width: calc(100% - 2em);
+    border-right-width: 0px;
+    border-bottom: 3px solid var(--blue);
+  }
+  section article {
+    display: block;
+    width: 100%;
+  }
+  /* Cards span full page */
+  .card {
+    grid-column: span 2;
+  }
+  
 }
