@@ -224,6 +224,7 @@ footer {
   padding: 1rem;
 }
 
+/* Low screen width */
 @media screen and (max-width: 768px) {
   /* Make section children stack at low-width */
   section {
